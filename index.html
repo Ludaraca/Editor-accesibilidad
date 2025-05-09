@@ -20,6 +20,17 @@
     <input type="file" id="file-input" />
     <p id="file-name">Ningún archivo seleccionado</p>
     <button onclick="handleFileUpload()">Subir archivo</button>
+
+    <!-- Botón de configuración -->
+    <h2>Configurar archivo</h2>
+    <button onclick="openConfigDialog()">Configurar</button>
+
+    <!-- Cuadro de texto para escribir la consigna -->
+    <div id="config-dialog" class="config-dialog">
+      <textarea id="config-text" placeholder="Escribe cómo te gustaría configurar el archivo para hacerlo más accesible..." rows="4"></textarea>
+      <button onclick="saveConfig()">Guardar Configuración</button>
+    </div>
+
   </div>
 
   <script src="script.js"></script>
