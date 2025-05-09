@@ -1,53 +1,31 @@
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-const highContrastToggle = document.getElementById("highContrastToggle");
-const fontSizeSelector = document.getElementById("fontSizeSelector");
+function handleFileUpload() {
+  const fileInput = document.getElementById('file-input');
+  const fileNameDisplay = document.getElementById('file-name');
 
-// Cargar imagen
-document.getElementById("imageUpload").addEventListener("change", function (e) {
-  const file = e.target.files[0];
-  if (!file) return;
-
-  const img = new Image();
-  img.onload = function () {
-    canvas.width = img.width;
-    canvas.height = img.height;
-    ctx.drawImage(img, 0, 0);
-  };
-  img.src = URL.createObjectURL(file);
-});
-
-// Aplicar filtros
-function applyFilter(type) {
-  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  const data = imageData.data;
-
-  for (let i = 0; i < data.length; i += 4) {
-    if (type === "grayscale") {
-      const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
-      data[i] = data[i + 1] = data[i + 2] = avg;
-    } else if (type === "invert") {
-      data[i] = 255 - data[i];       // R
-      data[i + 1] = 255 - data[i + 1]; // G
-      data[i + 2] = 255 - data[i + 2]; // B
-    }
+  if (fileInput.files.length > 0) {
+    const fileName = fileInput.files[0].name;
+    fileNameDisplay.textContent = `Archivo seleccionado: ${fileName}`;
+  } else {
+    fileNameDisplay.textContent = 'No se ha seleccionado ningún archivo';
   }
-
-  ctx.putImageData(imageData, 0, 0);
 }
 
-// Texto a voz
-function readText() {
-  const text = document.getElementById("textToRead").value;
-  const utterance = new SpeechSynthesisUtterance(text);
-  speechSynthesis.speak(utterance);
+// Función para abrir el cuadro de configuración
+function openConfigDialog() {
+  const configDialog = document.getElementById('config-dialog');
+  configDialog.style.display = 'block';
 }
 
-// Accesibilidad
-highContrastToggle.addEventListener("change", function () {
-  document.body.classList.toggle("high-contrast", this.checked);
-});
+// Función para guardar la consigna
+function saveConfig() {
+  const configText = document.getElementById('config-text').value;
 
-fontSizeSelector.addEventListener("change", function () {
-  document.body.style.fontSize = this.value;
-});
+  if (configText.trim() === '') {
+    alert('Por favor, escribe una consigna para la configuración.');
+  } else {
+    // Puedes guardar la consigna en algún lugar (por ejemplo, en el localStorage, enviar al backend, etc.)
+    alert('Configuración guardada: ' + configText);
+    document.getElementById('config-dialog').style.display = 'none'; // Cerrar el cuadro
+    document.getElementById('config-text').value = ''; // Limpiar el campo de texto
+  }
+}
