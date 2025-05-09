@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  padding: 1em;
+  background: #fff;
+  color: #000;
+}
+
+.high-contrast {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+canvas {
+  display: block;
+  margin-top: 1em;
+  border: 1px solid #ccc;
+  max-width: 100%;
+}
+
+.controls button {
+  margin: 0.5em;
+}
+
+.accessibility {
+  margin-top: 2em;
+}
+
+textarea {
+  width: 100%;
+  font-size: 1em;
+}
