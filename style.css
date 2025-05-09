@@ -1,11 +1,12 @@
 /* Estilo para el cuadro de texto de configuración */
 .config-dialog {
   display: none;
-  margin-top: 1rem;
+  margin: 1rem auto; /* Centramos el cuadro horizontalmente */
   padding: 1rem;
-  background-color: #f0f0f0;
+  background-color: beige; /* Cambiado a beige */
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Centrar el texto dentro del cuadro */
 }
 
 #config-text {
@@ -15,11 +16,12 @@
   border-radius: 8px;
   border: 1px solid #ccc;
   margin-bottom: 1rem;
+  text-align: center; /* Asegurar que el texto esté centrado */
 }
 
 button {
   display: inline-block;
-  background-color: #0066cc;
+  background-color: #3399ff; /* Cambiado a un azul más claro */
   color: beige;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -30,5 +32,16 @@ button {
 }
 
 button:hover {
-  background-color: #0055aa;
+  background-color: #2288dd; /* Azul claro más oscuro al pasar el cursor */
+}
+
+/* Centrar todo el contenido en la página */
+body {
+  display: flex;
+  flex-direction: column; /* Alinear los elementos en columna */
+  justify-content: center; /* Centrar verticalmente */
+  align-items: center; /* Centrar horizontalmente */
+  min-height: 100vh; /* Asegurarse de ocupar toda la ventana */
+  margin: 0;
+  background-color: #f0f0f0; /* Fondo del cuerpo, opcional */
 }
