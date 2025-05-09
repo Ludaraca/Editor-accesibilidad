@@ -2,49 +2,25 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Editor Accesible</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Editor de Imágenes Accesible</h1>
+    Editor Accesible para Estudiantes
   </header>
 
-  <main>
-    <section>
-      <label for="imageUpload">Subir imagen:</label>
-      <input type="file" id="imageUpload" accept="image/*" />
-      <canvas id="canvas"></canvas>
+  <div class="container">
+    <h2>Editor de Texto</h2>
+    <textarea placeholder="Escribí tu texto aquí..."></textarea>
+    <button>Leer texto</button>
 
-      <div class="controls">
-        <button onclick="applyFilter('grayscale')">Blanco y negro</button>
-        <button onclick="applyFilter('invert')">Invertir colores</button>
-      </div>
-    </section>
-
-    <section>
-      <label for="textToRead">Texto para leer:</label>
-      <textarea id="textToRead" rows="4" placeholder="Escribe aquí el texto..."></textarea>
-      <button onclick="readText()">Leer texto en voz alta</button>
-    </section>
-
-    <section class="accessibility">
-      <h2>Accesibilidad</h2>
-      <label>
-        Contraste alto:
-        <input type="checkbox" id="highContrastToggle" />
-      </label>
-      <label>
-        Tamaño de texto:
-        <select id="fontSizeSelector">
-          <option value="16px">Normal</option>
-          <option value="20px">Grande</option>
-          <option value="24px">Muy grande</option>
-        </select>
-      </label>
-    </section>
-  </main>
+    <h2>Subir archivo</h2>
+    <input type="file" id="file-input" />
+    <p id="file-name">Ningún archivo seleccionado</p>
+    <button onclick="handleFileUpload()">Subir archivo</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
